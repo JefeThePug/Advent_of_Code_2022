@@ -52,7 +52,7 @@ from string import ascii_letters as letters
 def get_badge_type(*bags: str) -> str:
     return "".join(set(bags[0]) & set(bags[1]) & set(bags[2]))
 
-def three_by_three(arr):
+def three_by_three(arr: list) -> int:
     return sum([1 + letters.index(get_badge_type(*arr[i:i+3])) for i in range(0,len(arr),3)])
 
 with open("input.txt") as f:
