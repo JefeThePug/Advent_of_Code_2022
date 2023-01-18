@@ -160,11 +160,12 @@ does the tail of the rope visit at least once?
 
 """
 
+
 class Leader:
     def __init__(self):
         self.pos = [0, 0]
         
-    def move(self, direction):
+    def move(self, direction:list) -> None:
         for i in range(2):
             self.pos[i] += direction[i]
 
@@ -173,7 +174,7 @@ class Follower:
         self.pos = [0, 0]
         self.direction = [0, 0]
         
-    def move(self, opponent):
+    def move(self, opponent:list) -> list:
         if any(abs(self.pos[i] - opponent[i]) >1 for i in range(2)):
             for i in range(2):
                 self.pos[i] += self.direction[i]
@@ -183,7 +184,7 @@ class Follower:
 
         return self.pos
 
-def get_instruction(i):
+def get_instruction(i:str) -> tuple:
     listkey = {"U": [0,-1], "R": [1, 0], "D": [0, 1], "L": [-1, 0]}
     target, mult = i.split()
     return listkey[target], int(mult)

@@ -197,12 +197,12 @@ Simulate your complete series of motions on a larger rope with ten knots. How ma
 from numpy import sign
 
 class Knot:
-    def __init__(self, head = False):
+    def __init__(self, head:bool = False) -> None:
         self.pos = [11,15]
         self.direction = [0,0]
         self.head = head
         
-    def move(self, target):
+    def move(self, target:list) -> None:
         if not self.head:
             move = any(abs(self.pos[i] - target[i]) > 1 for i in range(2))
             for i in range(2):
@@ -213,7 +213,7 @@ class Knot:
             for i in range(2):
                 self.pos[i] += target[i]
 
-def get_instruction(i):
+def get_instruction(i:str) -> tuple:
     listkey = {"U": [0,-1], "R": [1, 0], "D": [0, 1], "L": [-1, 0]}
     target, mult = i.split()
     return listkey[target], int(mult)
