@@ -74,11 +74,9 @@ def compare(left, right) -> bool:
             if x is not None:
                 return x
 
-
+data = ["[[2]]", "[[6]]"]
 with open("input.txt") as f:
-    data = f.read().replace("\n\n","\n").split("\n")[:-1]
-data.append("[[2]]")
-data.append("[[6]]")
+    data += f.read().replace("\n\n","\n").split("\n")[:-1]
 
 sorted = False
 while not sorted:
@@ -95,4 +93,4 @@ decoder_b = data.index("[[6]]")+1
 
 print(decoder_a * decoder_b)
 
-# Decoder key is : 26200     (Not the fastest code... Takes 15 seconds)
+# Decoder key is : 26200     (Not the fastest code... Takes 12 seconds)
